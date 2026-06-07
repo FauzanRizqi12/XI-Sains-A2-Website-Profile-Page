@@ -196,7 +196,7 @@ const manualData = {
     nama: "Nayla Yasmin",
     umur: "",
     ttl: "23 Desember 2009",
-    minat: "",
+    minat: "Travelling, Drawing, Scientific Research",
   },
 
   29: {
