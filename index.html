@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XI-Sains A2 Profil Website</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-gears">
+      <div class="gear gear-1">⚙</div>
+      <div class="gear gear-2">⚙</div>
+    </div>
+
+    <div class="circuit-bg">
+      <svg width="100%" height="100%">
+        <path
+          class="trace"
+          d="M0 100 L100 100 L100 300 L250 300 L250 150 L400 150"
+        />
+        <path class="trace" d="M1000 500 L850 500 L850 700 L700 700 L700 550" />
+        <path class="trace" d="M300 0 L300 100 L500 100 L500 250" />
+      </svg>
+    </div>
+
+    <header>
+      <h2 id="page-title">XI-Sains A2 Profil Page</h2>
+    </header>
+
+    <main id="student-container">
+      <div class="axis x-axis"></div>
+      <div class="axis y-axis"></div>
+      <div id="grid-content"></div>
+    </main>
+
+    <nav id="pagination">
+      <button onclick="changePage(1)" class="active">PAGE 01</button>
+      <button onclick="changePage(2)">PAGE 02</button>
+      <button onclick="changePage(3)">PAGE 03</button>
+      <button onclick="changePage(4)">PAGE 04</button>
+    </nav>
+
+    <div id="detail-modal" class="modal">
+      <div class="modal-content" id="modal-card">
+        <div class="modal-photo-container">
+          <div class="photo-placeholder">FOTO</div>
+          <div class="absen-badge" id="modal-absen">00</div>
+        </div>
+        <div class="modal-info" id="modal-info">
+          <div class="info-row">
+            <span class="label">Nama:</span> <span id="m-nama">-</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Umur:</span> <span id="m-umur">-</span>
+          </div>
+          <div class="info-row">
+            <span class="label">TTL:</span> <span id="m-ttl">-</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Minat:</span> <span id="m-minat">-</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
