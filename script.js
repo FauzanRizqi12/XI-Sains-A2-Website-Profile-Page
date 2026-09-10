@@ -106,7 +106,7 @@ const manualData = {
   15: {
     nama: "Faza Marwan Azka",
     umur: "",
-    title: "Master of 'Makek'",
+    title: "Success Person",
     ttl: "29 September 2009",
     minat: "Vehicle Modification",
   },
@@ -156,7 +156,7 @@ const manualData = {
 
   22: {
     nama: "M. Fauzan Rizqi Srg",
-    title: "IT Fullstack Developer",
+    title: "IT Developer",
     umur: "",
     ttl: "2 Desember 2009",
     minat: "Programmer, Pro Gamer",
