@@ -3,15 +3,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Rajdhani', 'JetBrains Mono', monospace;
+    font-weight: 600;
+}
+
+h1, h2, h3, #page-title, .absen-number, .absen-badge, #pagination button, .label {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
 }
 
 body {
     background: linear-gradient(to top, #000000 0%, #0a3a52 50%, #1a7499 100%);
     color: #aaddff;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     overflow-x: hidden;
     position: relative;
     z-index: 0;
@@ -63,31 +71,102 @@ body::before {
 
 header {
     text-align: center;
-    padding: 20px 0;
+    padding: 20px 0 10px 0;
     text-shadow: 0 0 10px rgba(170, 221, 255, 0.5);
+    z-index: 10;
+}
+
+.search-container {
+    margin: 12px auto 0 auto;
+    position: relative;
+    max-width: 360px;
+    width: 85%;
+    display: flex;
+    align-items: center;
+    background: rgba(5, 22, 42, 0.8);
+    border: 1px solid rgba(77, 166, 255, 0.5);
+    border-radius: 20px;
+    padding: 6px 14px;
+    box-shadow: 0 0 12px rgba(77, 166, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.search-container:focus-within {
+    border-color: #00ffff;
+    box-shadow: 0 0 18px rgba(0, 255, 255, 0.5);
+    background: rgba(5, 25, 48, 0.95);
+}
+
+.search-icon {
+    font-size: 0.85rem;
+    margin-right: 8px;
+    opacity: 0.8;
+    user-select: none;
+}
+
+#search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ffff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    width: 100%;
+    letter-spacing: 0.5px;
+}
+
+#search-input::placeholder {
+    color: rgba(170, 221, 255, 0.45);
+    font-size: 0.72rem;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+}
+
+#clear-search {
+    background: transparent;
+    border: none;
+    color: #4da6ff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: color 0.2s;
+}
+
+#clear-search:hover {
+    color: #ff4d4d;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px 10px;
+    color: rgba(170, 221, 255, 0.7);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
 }
 
 main {
     flex: 1;
     position: relative;
-    width: 100vw;
-    height: 75vh;
+    width: 100%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px 0;
 }
 
 #grid-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 15px 10px;
-    width: 90%;
-    max-width: 400px;
+    gap: 12px 8px;
+    width: 95%;
+    max-width: 360px;
     margin: 0 auto;
-    padding-top: 20px;
-    padding-bottom: 120px;
+    padding: 10px 0;
     position: relative; 
+    justify-items: center;
 }
 
 .axis {
@@ -125,10 +204,10 @@ main {
 .student-card {
     background: #05162a;
     border-radius: 8px;
-    padding: 8px;
+    padding: 6px;
     cursor: pointer;
     width: 100%; 
-    max-width: 110px;
+    max-width: 105px;
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -228,11 +307,12 @@ main {
 .modal-content {
     background: #05192d;
     border-radius: 12px;
-    padding: 20px;
-    width: 80%;
-    max-width: 350px;
+    padding: 16px;
+    width: 88%;
+    max-width: 340px;
+    max-height: 88vh;
+    overflow-y: auto;
     position: relative;
-    overflow: hidden;
     z-index: 1;
 }
 
@@ -326,21 +406,23 @@ main {
     display: flex;
     justify-content: center;
     gap: 8px;
-    padding: 0px 0;
+    padding: 12px 0;
     position: relative;
-    bottom: 80px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     width: 100%;
+    z-index: 10;
+    margin-top: auto;
 }
 
 #pagination button {
     background: transparent;
-    color: rgba(170, 221, 255, 0.5);
+    color: rgba(170, 221, 255, 0.6);
     border: 1px solid rgba(170, 221, 255, 0.5);
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: 8px 14px;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: 0.3s;
+    border-radius: 4px;
 }
 
 #pagination button.active {
@@ -427,5 +509,242 @@ main {
 }
 
 .student-card, .modal-content, .trace, .gear {
-    will-change: transform, opacity, stroke-dashoffset;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+/* Fiery Game Title Effect Above Photo */
+.modal-title-header {
+    text-align: center;
+    margin-bottom: 12px;
+    width: 100%;
+    padding: 6px 10px;
+    background: rgba(255, 68, 0, 0.08);
+    border: 1px solid rgba(255, 102, 0, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(255, 68, 0, 0.2);
+}
+
+.fiery-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(
+        0deg,
+        #ff1a00 0%,
+        #ff6600 25%,
+        #ffae00 55%,
+        #ffffff 100%
+    );
+    background-size: 100% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    filter: drop-shadow(0 0 4px rgba(255, 68, 0, 0.8)) drop-shadow(0 -1px 6px rgba(255, 174, 0, 0.7));
+    animation: fieryGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes fieryGlow {
+    0% {
+        background-position: 0% 0%;
+        filter: drop-shadow(0 0 3px rgba(255, 30, 0, 0.8)) drop-shadow(0 -1px 6px rgba(255, 140, 0, 0.7));
+    }
+    50% {
+        background-position: 0% 50%;
+        filter: drop-shadow(0 0 6px rgba(255, 80, 0, 1)) drop-shadow(0 -3px 10px rgba(255, 215, 0, 0.9));
+    }
+    100% {
+        background-position: 0% 100%;
+        filter: drop-shadow(0 0 4px rgba(255, 50, 0, 0.8)) drop-shadow(0 -2px 8px rgba(255, 165, 0, 0.8));
+    }
+}
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+    .modal {
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+    }
+
+    .bg-gears {
+        opacity: 0.08;
+    }
+
+    .gear-1 {
+        font-size: 130px;
+    }
+
+    .gear-2 {
+        font-size: 180px;
+    }
+
+    .circuit-bg {
+        opacity: 0.25;
+    }
+
+    .student-card::before {
+        animation-duration: 6s;
+    }
+}
+
+/* Confetti Canvas Overlay */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2000;
+}
+
+/* Birthday Card & Badge Styling */
+.student-card.birthday-active {
+    border: 1px solid #ffd700;
+    box-shadow: 0 0 16px rgba(255, 215, 0, 0.85);
+    animation: bdayPulse 2s infinite alternate;
+}
+
+@keyframes bdayPulse {
+    0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
+    100% { box-shadow: 0 0 22px rgba(255, 0, 128, 0.9); }
+}
+
+.birthday-badge-tag {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: linear-gradient(135deg, #ff007f, #ffaa00);
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.5rem;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(255, 0, 128, 0.8);
+    z-index: 5;
+    animation: bounceBadge 1.5s infinite alternate;
+}
+
+@keyframes bounceBadge {
+    from { transform: translateY(0); }
+    to { transform: translateY(-3px); }
+}
+
+/* Modal Birthday Banner */
+.birthday-banner {
+    background: linear-gradient(90deg, rgba(255, 0, 128, 0.2), rgba(255, 215, 0, 0.2));
+    border: 1px solid #ffd700;
+    color: #ffd700;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+    animation: slideInText 0.4s ease forwards;
+}
+
+/* Notification Bar Styling */
+.notif-banner {
+    margin: 10px auto 0 auto;
+    max-width: 360px;
+    width: 90%;
+    background: rgba(5, 25, 48, 0.95);
+    border: 1px solid #00ffff;
+    border-radius: 12px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #aaddff;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+}
+
+.notif-btn {
+    background: rgba(0, 255, 255, 0.2);
+    border: 1px solid #00ffff;
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: all 0.2s;
+}
+
+.notif-btn:hover {
+    background: #00ffff;
+    color: #000000;
+}
+
+.notif-close {
+    background: transparent;
+    border: none;
+    color: rgba(170, 221, 255, 0.6);
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-left: 6px;
+}
+
+.notif-close:hover {
+    color: #ff4d4d;
+}
+
+/* Smartphone Responsive Auto-Fit (<= 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 12px 5px 5px 5px;
+    }
+
+    #page-title {
+        font-size: 1.15rem;
+    }
+
+    .search-container {
+        max-width: 320px;
+        width: 92%;
+        padding: 5px 10px;
+    }
+
+    #search-input {
+        font-size: 0.75rem;
+    }
+
+    #grid-content {
+        gap: 8px 6px;
+        width: 98%;
+        max-width: 330px;
+        padding: 5px 0;
+    }
+
+    .student-card {
+        max-width: 98px;
+        padding: 5px;
+    }
+
+    .absen-number {
+        font-size: 0.95rem;
+    }
+
+    .status-text {
+        font-size: 0.5rem;
+    }
+
+    #pagination button {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+
+    .modal-content {
+        padding: 14px;
+        width: 90%;
+        max-width: 320px;
+    }
 }

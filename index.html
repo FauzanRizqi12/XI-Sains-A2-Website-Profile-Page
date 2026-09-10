@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XI-Sains A2 Profil Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <canvas id="confetti-canvas"></canvas>
+
     <div class="bg-gears">
       <div class="gear gear-1">⚙</div>
       <div class="gear gear-2">⚙</div>
@@ -24,7 +29,22 @@
     </div>
 
     <header>
-      <h2 id="page-title">XI-Sains A2 Profil Page</h2>
+      <h2 id="page-title">XI-SAINS A2 PROFILE PAGE</h2>
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="[ CARI NAMA / ABSEN / MINAT... ]"
+          autocomplete="off"
+        />
+        <button id="clear-search" onclick="clearSearch()" style="display: none;">✕</button>
+      </div>
+      <div id="notif-banner" class="notif-banner" style="display: none;">
+        <span>🔔 Aktifkan pengingat ulang tahun teman kelas?</span>
+        <button onclick="requestBirthdayNotification()" class="notif-btn">IZINKAN</button>
+        <button onclick="dismissNotifBanner()" class="notif-close">✕</button>
+      </div>
     </header>
 
     <main id="student-container">
@@ -42,6 +62,9 @@
 
     <div id="detail-modal" class="modal">
       <div class="modal-content" id="modal-card">
+        <div class="modal-title-header">
+          <div id="m-title"></div>
+        </div>
         <div class="modal-photo-container">
           <div class="photo-placeholder">FOTO</div>
           <div class="absen-badge" id="modal-absen">00</div>
