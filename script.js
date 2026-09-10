@@ -85,8 +85,9 @@ const manualData = {
   12: {
     nama: "Dewi Andini",
     umur: "",
+    title: "S.Psi. M.Psi., Psikolog",
     ttl: "10 Maret 2009",
-    minat: "Architech, Joshua",
+    minat: "Psychology, 1230J",
   },
 
   13: {
