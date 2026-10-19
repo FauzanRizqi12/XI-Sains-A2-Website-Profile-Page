@@ -71,27 +71,98 @@
     <!-- Profile Detail Modal -->
     <div id="detail-modal" class="modal">
       <div class="modal-content" id="modal-card">
-        <div class="modal-title-header">
-          <div id="m-title"></div>
-        </div>
-        <div class="modal-photo-container">
-          <div class="photo-placeholder">FOTO</div>
-          <div class="absen-badge" id="modal-absen">00</div>
-        </div>
-        <div class="modal-info" id="modal-info">
-          <div class="info-row">
-            <span class="label">Nama:</span>
-            <span id="m-nama">-</span>
-            <button id="gift-btn" class="gift-btn" onclick="openGiftModal()" style="display:none" title="Kirim Pesan Ulang Tahun">🎁</button>
+        <!-- Tombol Silang Utama (Pintar: Tutup Mode Edit jika sedang edit, atau Tutup Profile) -->
+        <button
+          class="modal-close-main-btn"
+          onclick="handleSmartClose()"
+          title="Tutup"
+        >
+          ✕
+        </button>
+
+        <!-- Ikon Kunci di Pojok Kanan Atas Modal untuk Edit Data -->
+        <button
+          class="modal-edit-key-btn"
+          onclick="promptEditPin()"
+          title="Edit Profil"
+        >
+          🔑
+        </button>
+
+        <div class="modal-body-scroll">
+          <div class="modal-title-header">
+            <div id="m-title"></div>
           </div>
-          <div class="info-row">
-            <span class="label">Umur:</span> <span id="m-umur">-</span>
+          <div class="modal-photo-container">
+            <div class="photo-placeholder">FOTO</div>
+            <div class="absen-badge" id="modal-absen">00</div>
           </div>
-          <div class="info-row">
-            <span class="label">TTL:</span> <span id="m-ttl">-</span>
-          </div>
-          <div class="info-row">
-            <span class="label">Impian:</span> <span id="m-minat">-</span>
+          <div class="modal-info" id="modal-info">
+            <div class="info-row">
+              <span class="label">Nama:</span>
+              <span class="value-text"
+                ><span id="m-nama">-</span>
+                <button
+                  id="gift-btn"
+                  class="gift-btn"
+                  onclick="openGiftModal()"
+                  style="display: none"
+                  title="Kirim Pesan Ulang Tahun"
+                >
+                  🎁
+                </button></span
+              >
+            </div>
+            <div class="info-row">
+              <span class="label">Umur:</span>
+              <span class="value-text" id="m-umur">-</span>
+            </div>
+            <div class="info-row">
+              <span class="label">TTL:</span>
+              <span class="value-text" id="m-ttl">-</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Impian:</span>
+              <span class="value-text" id="m-minat">-</span>
+            </div>
+
+            <!-- Form Edit (Tersembunyi sampai PIN benar) -->
+            <div id="edit-form-box" class="edit-form-container">
+              <input
+                type="text"
+                id="edit-nama"
+                class="edit-input"
+                placeholder="Nama Lengkap"
+              />
+              <input
+                type="text"
+                id="edit-title"
+                class="edit-input"
+                placeholder="Title (Contoh: IT Developer)"
+              />
+              <input
+                type="text"
+                id="edit-ttl"
+                class="edit-input"
+                placeholder="TTL (Contoh: 2 Desember 2009)"
+              />
+              <input
+                type="text"
+                id="edit-minat"
+                class="edit-input"
+                placeholder="Cita-cita / Impian"
+              />
+              <button class="edit-btn-action" onclick="savePersonalData()">
+                SIMPAN PERUBAHAN
+              </button>
+              <button
+                class="edit-btn-action"
+                style="border-color: #ffd700; color: #ffd700"
+                onclick="closeEditForm()"
+              >
+                TUTUP FORM EDIT ✕
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -111,21 +182,69 @@
         </div>
 
         <div class="gift-form-group">
-          <label class="gift-label" for="gift-from">Nama Kamu: <span class="required">*</span></label>
-          <input type="text" id="gift-from" class="gift-input" placeholder="Tulis namamu di sini..." maxlength="40" autocomplete="off" />
+          <label class="gift-label" for="gift-from"
+            >Nama Kamu: <span class="required">*</span></label
+          >
+          <input
+            type="text"
+            id="gift-from"
+            class="gift-input"
+            placeholder="Tulis namamu di sini..."
+            maxlength="40"
+            autocomplete="off"
+          />
         </div>
 
         <div class="gift-form-group">
-          <label class="gift-label" for="gift-message">Pesan: <span class="required">*</span></label>
-          <textarea id="gift-message" class="gift-textarea" placeholder="Tulis pesan singkat... (maks. 120 karakter)" maxlength="120"></textarea>
+          <label class="gift-label" for="gift-message"
+            >Pesan: <span class="required">*</span></label
+          >
+          <textarea
+            id="gift-message"
+            class="gift-textarea"
+            placeholder="Tulis pesan singkat... (maks. 120 karakter)"
+            maxlength="120"
+          ></textarea>
           <div class="gift-char-count"><span id="char-count">0</span>/120</div>
         </div>
 
-        <div id="gift-error" class="gift-error" style="display:none"></div>
+        <div id="gift-error" class="gift-error" style="display: none"></div>
 
         <button class="gift-send-btn" onclick="sendBirthdayMessage()">
           KIRIM PESAN 💌
         </button>
+      </div>
+    </div>
+
+    <!-- Custom PIN Verification Modal -->
+    <div id="pin-modal" class="modal pin-modal-overlay">
+      <div class="pin-modal-content">
+        <div class="pin-modal-header">
+          <span>🔑 KODE AKSES PROFIL</span>
+          <button class="pin-modal-close" onclick="closePinModal()">✕</button>
+        </div>
+        <div class="pin-modal-body">
+          <p id="pin-modal-subtitle" class="pin-subtitle">
+            Masukkan PIN untuk mengedit profil ini
+          </p>
+          <div class="pin-input-group">
+            <input
+              type="password"
+              id="pin-input-field"
+              class="pin-input"
+              placeholder="Kode PIN..."
+              maxlength="10"
+              autocomplete="off"
+              inputmode="numeric"
+            />
+          </div>
+          <div id="pin-error-msg" class="pin-error" style="display: none">
+            ❌ Kode Akses PIN Salah!
+          </div>
+          <button class="pin-submit-btn" onclick="submitPin()">
+            VERIFIKASI PIN 🔓
+          </button>
+        </div>
       </div>
     </div>
 

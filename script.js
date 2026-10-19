@@ -2,7 +2,7 @@ const totalStudents = 37;
 const itemsPerPage = 9;
 let currentPage = 1;
 
-//NAMA-NAMA & DATA DIRI//
+// NAMA-NAMA & DATA DIRI MANUAL (DEFAULT)
 const manualData = {
   1: {
     nama: "Abdul Hafiz Ramadhan",
@@ -11,77 +11,56 @@ const manualData = {
     ttl: "29 September 2008",
     minat: "Geography",
   },
-
   2: {
     nama: "Abdurrahman Al Faqih Lubis",
     umur: "",
     ttl: "10 Agustus 2009",
     minat: "Basket",
   },
-
   3: {
     nama: "Ainur Wilda Siregar",
     umur: "",
     ttl: "26 Mei 2010",
     minat: "Listening Music",
   },
-
-  4: {
-    nama: "Alfiansyah",
-    umur: "",
-    ttl: "3 Oktober 2008",
-    minat: "Paskibra",
-  },
-
+  4: { nama: "Alfiansyah", umur: "", ttl: "3 Oktober 2008", minat: "Paskibra" },
   5: {
     nama: "Alvaro Laisina",
     umur: "",
     ttl: "28 September 2009",
     minat: "Olimpiade",
   },
-
   6: {
     nama: "Aqilla Zahrani Hendrawan",
     umur: "",
     ttl: "13 Juli 2009",
     minat: "Pramugari",
   },
-
   7: {
     nama: "Arif Azman Harahap",
     umur: "",
     ttl: "30 Juni 2009",
     minat: "Pemain Timnas",
   },
-
-  8: {
-    nama: "Ayu Dyah",
-    umur: "",
-    ttl: "04 Januari 2009",
-    minat: "Archer",
-  },
-
+  8: { nama: "Ayu Dyah", umur: "", ttl: "04 Januari 2009", minat: "Archer" },
   9: {
     nama: "Azka Ulima Husna Nadeak",
     umur: "",
     ttl: "04 Desember 2009",
     minat: "",
   },
-
   10: {
     nama: "Desvina Haura Fairuz",
     umur: "",
     ttl: "5 Desember 2009",
     minat: "",
   },
-
   11: {
     nama: "Desvita Haura Fairuz",
     umur: "",
     ttl: "5 Desember 2009",
     minat: "Listening Music",
   },
-
   12: {
     nama: "Dewi Andini",
     umur: "",
@@ -89,21 +68,18 @@ const manualData = {
     ttl: "10 Maret 2009",
     minat: "Psychology, 1230J",
   },
-
   13: {
     nama: "Dhafira Khairiyah Batubara",
     umur: "",
     ttl: "21 Desember 2009",
     minat: "",
   },
-
   14: {
     nama: "Fadhilatun Nisa Manurung",
     umur: "",
     ttl: "13 Agustus 2009",
     minat: "Travelling",
   },
-
   15: {
     nama: "Faza Marwan Azka",
     umur: "",
@@ -111,14 +87,12 @@ const manualData = {
     ttl: "29 September 2009",
     minat: "Vehicle Modification",
   },
-
   16: {
     nama: "Firly Bagus Cahyo",
     umur: "",
     ttl: "21 Januari 2009",
     minat: "Guitarist",
   },
-
   17: {
     nama: "Fitryah Handayani Daulay",
     umur: "",
@@ -126,7 +100,6 @@ const manualData = {
     ttl: "19 September 2009",
     minat: "Writing, Travelling",
   },
-
   18: {
     nama: "Khadijah Limbong",
     umur: "",
@@ -139,14 +112,12 @@ const manualData = {
     ttl: "10 Juli 2009",
     minat: "Writing Novel",
   },
-
   20: {
     nama: "Muhammad Fauzan Al Fakhri",
     umur: "",
     ttl: "11 April 2009",
     minat: "Gaming",
   },
-
   21: {
     nama: "Muhammad Fathur Rais",
     title: "Biology Addict",
@@ -154,7 +125,6 @@ const manualData = {
     ttl: "12 Maret 2009",
     minat: "Membaca",
   },
-
   22: {
     nama: "M. Fauzan Rizqi Srg",
     title: "IT Developer",
@@ -162,35 +132,30 @@ const manualData = {
     ttl: "2 Desember 2009",
     minat: "Programmer, Pro Gamer",
   },
-
   23: {
     nama: "Muhammad Jibril Imaman",
     umur: "",
     ttl: "10 September 2009",
     minat: "Olahraga",
   },
-
   24: {
     nama: "Muhammad Nabil Althaf",
     umur: "",
     ttl: "1 Februari 2009",
     minat: "Gaming",
   },
-
   25: {
     nama: "Nafiza Almira",
     umur: "",
     ttl: "16 Oktober 2009",
     minat: "Qira'atul Qur'an",
   },
-
   26: {
     nama: "Najwa Ayu Azzahra",
     umur: "",
     ttl: "13 September 2009",
     minat: "Miliarder",
   },
-
   27: {
     nama: "Nara Raissa Fahri",
     umur: "",
@@ -198,14 +163,12 @@ const manualData = {
     ttl: "17 April 2010",
     minat: "Anime, Mendengar Musik, Sastra",
   },
-
   28: {
     nama: "Nayla Yasmin",
     umur: "",
     ttl: "23 Desember 2009",
     minat: "Travelling, Drawing, Scientific Research",
   },
-
   29: {
     nama: "Rakka Syah Ananda Siregar",
     title: "",
@@ -213,29 +176,20 @@ const manualData = {
     ttl: "20 Juli 2009",
     minat: "PNS Kementrian Keuangan",
   },
-
-  30: {
-    nama: "Safa Zahirah Arifin",
-    umur: "",
-    ttl: "30 Juni 2009",
-    minat: "",
-  },
-
+  30: { nama: "Safa Zahirah Arifin", umur: "", ttl: "30 Juni 2009", minat: "" },
   31: {
     nama: "Shaliha Salsabila Iman",
     umur: "",
     ttl: "18 Desember 2009",
     minat: "Olahraga",
   },
-
   32: {
     nama: "Shata Nabil Akyi",
     title: "'Ketua' IT",
     umur: "",
-    ttl: "1 desember 2009",
+    ttl: "1 Desember 2009",
     minat: "Photografi, Tracking",
   },
-
   33: {
     nama: "Syifa Qalbu Sinaga",
     umur: "",
@@ -248,21 +202,18 @@ const manualData = {
     ttl: "2 Januari 2009",
     minat: "Berkendara Malam",
   },
-
   35: {
     nama: "Wardatun Husniyah Hasibuan",
     umur: "",
     ttl: "8 Januari 2009",
     minat: "Nonton Film, Bernyanyi",
   },
-
   36: {
     nama: "Yola Putri Irbi",
     umur: "",
     ttl: "12 Agustus 2009",
     minat: "Menari, Cortis & Sean",
   },
-
   37: {
     nama: "Zhahir Farzan Dani",
     umur: "",
@@ -272,30 +223,226 @@ const manualData = {
   },
 };
 
-const studentsData = Array.from({ length: totalStudents }, (_, index) => {
-  const absen = index + 1;
-  const defaultData = {
-    nama: `Siswa ${absen}`,
-    umur: "Unknown",
-    ttl: "Unknown",
-    minat: "N/A",
+// INITIALIZE STUDENTS ARRAY (MENCEGAH ERROR UNDEFINED)
+const studentsData = Array.from({ length: totalStudents }, (_, i) => {
+  const id = i + 1;
+  return {
+    absen: id,
+    ...(manualData[id] || { nama: `Siswa ${id}`, ttl: "Unknown", minat: "-" }),
   };
-
-  const finalData = manualData[absen] || defaultData;
-  return { absen, ...finalData };
 });
 
+// JSONBIN CLOUD SETUP
+const JSONBIN_BIN_ID = "6ad64c64ac6210605a3fbb01";
+const JSONBIN_API_KEY =
+  "$2a$10$PakBeuR7kVeDug/kqnbVhO2j/QgdTCWXrFefORQZ11/mkgPLmVHgm";
+const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
+
+// 1. AMBIL DATA TERBARU DARI CLOUD SAAT WEB DIBUKA
+async function loadCloudData() {
+  try {
+    const res = await fetch(`${JSONBIN_URL}/latest`, {
+      headers: { "X-Master-Key": JSONBIN_API_KEY },
+    });
+    const cloudResult = await res.json();
+    const cloudData = cloudResult.record;
+
+    if (cloudData) {
+      studentsData.forEach((student) => {
+        if (cloudData[student.absen]) {
+          Object.assign(student, cloudData[student.absen]);
+        }
+      });
+    }
+  } catch (err) {
+    console.error("Gagal mengambil data cloud, menggunakan data lokal:", err);
+  } finally {
+    changePage(1);
+  }
+}
+
+// FLOATING MESSAGES SYSTEM
+let bdayMessages = JSON.parse(
+  localStorage.getItem("bday_messages_store") || "[]",
+);
+let currentMsgLoopIndex = 0;
+let isLoopActive = false;
+
+function startContinuousMessageLoop() {
+  if (bdayMessages.length === 0 || isLoopActive) return;
+  isLoopActive = true;
+  playNextLoopMessage();
+}
+
+function playNextLoopMessage() {
+  if (bdayMessages.length === 0) {
+    isLoopActive = false;
+    return;
+  }
+  if (currentMsgLoopIndex >= bdayMessages.length) {
+    currentMsgLoopIndex = 0;
+  }
+  const msg = bdayMessages[currentMsgLoopIndex];
+  renderFloatingBubble(msg.toName, msg.message, msg.fromName, () => {
+    currentMsgLoopIndex++;
+    setTimeout(playNextLoopMessage, 600);
+  });
+}
+
+function renderFloatingBubble(toName, message, fromName, onComplete) {
+  const container = document.getElementById("floating-messages");
+  if (!container) return;
+
+  const bubble = document.createElement("div");
+  bubble.className = "floating-msg";
+  bubble.innerHTML = `
+    <div class="floating-msg-for">🎂 UNTUK: ${escapeHtml(toName.toUpperCase())}</div>
+    <div class="floating-msg-text">${escapeHtml(message)}</div>
+    <div class="floating-msg-from">— ${escapeHtml(fromName)}</div>
+  `;
+
+  container.appendChild(bubble);
+
+  setTimeout(() => {
+    bubble.remove();
+    if (onComplete) onComplete();
+  }, 6500);
+}
+
+// PIN & EDIT SYSTEM
+function promptEditPin() {
+  if (!currentModalStudent) return;
+
+  const pinInput = document.getElementById("pin-input-field");
+  const pinError = document.getElementById("pin-error-msg");
+  const subtitle = document.getElementById("pin-modal-subtitle");
+
+  if (pinInput) pinInput.value = "";
+  if (pinError) pinError.style.display = "none";
+
+  if (subtitle) {
+    const hasCustomPin = Boolean(currentModalStudent.pin);
+    const hintText = hasCustomPin
+      ? "(Gunakan PIN rahasia khusus kamu)"
+      : `(Petunjuk: 10 + Nomor Absen, misal 10${currentModalStudent.absen.toString().padStart(2, "0")})`;
+
+    subtitle.innerHTML = `Masukkan PIN untuk <b>${escapeHtml(currentModalStudent.nama)}</b>:<br><span class="pin-hint">${hintText}</span>`;
+  }
+
+  const pinModal = document.getElementById("pin-modal");
+  if (pinModal) {
+    pinModal.classList.add("active");
+    setTimeout(() => {
+      if (pinInput) pinInput.focus();
+    }, 150);
+  }
+}
+
+function closePinModal() {
+  const pinModal = document.getElementById("pin-modal");
+  if (pinModal) pinModal.classList.remove("active");
+}
+
+function submitPin() {
+  if (!currentModalStudent) return;
+
+  const pinInput = document.getElementById("pin-input-field");
+  const pinError = document.getElementById("pin-error-msg");
+
+  const expectedPin =
+    currentModalStudent.pin ||
+    "10" + currentModalStudent.absen.toString().padStart(2, "0");
+  const enteredPin = pinInput ? pinInput.value.trim() : "";
+
+  if (enteredPin === expectedPin) {
+    closePinModal();
+    const editBox = document.getElementById("edit-form-box");
+    if (editBox) {
+      editBox.style.display = "flex";
+      document.getElementById("edit-nama").value =
+        currentModalStudent.nama || "";
+      document.getElementById("edit-title").value =
+        currentModalStudent.title || "";
+      document.getElementById("edit-ttl").value = currentModalStudent.ttl || "";
+      document.getElementById("edit-minat").value =
+        currentModalStudent.minat || "";
+
+      const scrollContainer = document.querySelector(".modal-body-scroll");
+      if (scrollContainer) {
+        setTimeout(() => {
+          editBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 150);
+      }
+    }
+  } else {
+    if (pinError) {
+      pinError.style.display = "block";
+      pinError.textContent = "❌ Kode Akses PIN Salah! Coba lagi.";
+    }
+    if (pinInput) {
+      pinInput.value = "";
+      pinInput.focus();
+    }
+  }
+}
+
+async function savePersonalData() {
+  if (!currentModalStudent) return;
+  const absen = currentModalStudent.absen;
+
+  const newNama = document.getElementById("edit-nama").value.trim();
+  const newTitle = document.getElementById("edit-title").value.trim();
+  const newTtl = document.getElementById("edit-ttl").value.trim();
+  const newMinat = document.getElementById("edit-minat").value.trim();
+
+  const updatedAllData = {};
+  studentsData.forEach((s) => {
+    updatedAllData[s.absen] = {
+      nama: s.absen === absen ? newNama : s.nama,
+      title: s.absen === absen ? newTitle : s.title,
+      ttl: s.absen === absen ? newTtl : s.ttl,
+      minat: s.absen === absen ? newMinat : s.minat,
+      pin: s.pin || "",
+    };
+  });
+
+  try {
+    const res = await fetch(JSONBIN_URL, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Master-Key": JSONBIN_API_KEY,
+      },
+      body: JSON.stringify(updatedAllData),
+    });
+
+    if (res.ok) {
+      Object.assign(currentModalStudent, updatedAllData[absen]);
+      alert("✅ Profil berhasil diperbarui secara online!");
+      openModal(currentModalStudent);
+    } else {
+      alert("❌ Gagal menyimpan ke cloud server.");
+    }
+  } catch (err) {
+    console.error("Error saving data:", err);
+    alert("⚠️ Terjadi kesalahan koneksi saat menyimpan.");
+  }
+}
+
+function closeEditForm() {
+  const editBox = document.getElementById("edit-form-box");
+  if (editBox) editBox.style.display = "none";
+}
+
+// RENDER CARDS & PAGINATION
 const container = document.getElementById("student-container");
-const pageTitle = document.getElementById("page-title");
-const buttons = document.querySelectorAll("#pagination button");
-const modal = document.getElementById("detail-modal");
 const searchInput = document.getElementById("search-input");
 const clearBtn = document.getElementById("clear-search");
-
 let isSearching = false;
 
 function renderCards(dataList) {
   const gridContent = document.getElementById("grid-content");
+  if (!gridContent) return;
   gridContent.innerHTML = "";
 
   if (dataList.length === 0) {
@@ -326,6 +473,7 @@ function changePage(page) {
   if (isSearching) return;
   const gridContent = document.getElementById("grid-content");
   const buttons = document.querySelectorAll("#pagination button");
+  if (!gridContent) return;
 
   gridContent.classList.remove("page-transition");
   gridContent.classList.add("page-exit");
@@ -369,7 +517,7 @@ function handleSearch() {
     if (paginationNav) paginationNav.style.opacity = "0.3";
 
     const filtered = studentsData.filter((student) => {
-      const matchNama = student.nama.toLowerCase().includes(query);
+      const matchNama = (student.nama || "").toLowerCase().includes(query);
       const matchMinat = (student.minat || "").toLowerCase().includes(query);
       const matchAbsen =
         student.absen.toString() === query ||
@@ -378,8 +526,10 @@ function handleSearch() {
     });
 
     const gridContent = document.getElementById("grid-content");
-    gridContent.classList.remove("page-4-layout");
-    renderCards(filtered);
+    if (gridContent) {
+      gridContent.classList.remove("page-4-layout");
+      renderCards(filtered);
+    }
   } else {
     isSearching = false;
     if (clearBtn) clearBtn.style.display = "none";
@@ -393,9 +543,7 @@ function clearSearch() {
   handleSearch();
 }
 
-if (searchInput) {
-  searchInput.addEventListener("input", handleSearch);
-}
+if (searchInput) searchInput.addEventListener("input", handleSearch);
 
 function hitungUmurOtomatis(ttlString) {
   if (!ttlString || ttlString === "Unknown") return "N/A";
@@ -417,7 +565,11 @@ function hitungUmurOtomatis(ttlString) {
   const bagian = ttlString.split(" ");
   if (bagian.length < 3) return "N/A";
   const tanggal = parseInt(bagian[0]);
-  const bulan = daftarBulan[bagian[1]];
+
+  // Penanganan sensitivitas huruf besar/kecil nama bulan
+  const bulanNama =
+    bagian[1].charAt(0).toUpperCase() + bagian[1].slice(1).toLowerCase();
+  const bulan = daftarBulan[bulanNama];
   const tahun = parseInt(bagian[2]);
 
   if (isNaN(tanggal) || bulan === undefined || isNaN(tahun)) return "N/A";
@@ -501,7 +653,9 @@ function checkIsBirthdayToday(ttlString) {
   const bagian = ttlString.split(" ");
   if (bagian.length < 3) return false;
   const tanggal = parseInt(bagian[0]);
-  const bulan = daftarBulan[bagian[1]];
+  const bulanNama =
+    bagian[1].charAt(0).toUpperCase() + bagian[1].slice(1).toLowerCase();
+  const bulan = daftarBulan[bulanNama];
 
   const today = new Date();
   return today.getDate() === tanggal && today.getMonth() === bulan;
@@ -523,9 +677,7 @@ function launchConfetti() {
     "#ffffff",
   ];
   const particles = [];
-  const particleCount = 60;
-
-  for (let i = 0; i < particleCount; i++) {
+  for (let i = 0; i < 60; i++) {
     particles.push({
       x: canvas.width / 2,
       y: canvas.height / 2 + 50,
@@ -575,7 +727,6 @@ function launchConfetti() {
 
 function initBirthdayNotification() {
   if (!("Notification" in window)) return;
-
   const banner = document.getElementById("notif-banner");
   if (Notification.permission === "default" && banner) {
     banner.style.display = "flex";
@@ -588,9 +739,7 @@ function requestBirthdayNotification() {
   if (!("Notification" in window)) return;
   Notification.requestPermission().then((permission) => {
     dismissNotifBanner();
-    if (permission === "granted") {
-      checkAndTriggerBirthdayNotifications();
-    }
+    if (permission === "granted") checkAndTriggerBirthdayNotifications();
   });
 }
 
@@ -612,7 +761,6 @@ function checkAndTriggerBirthdayNotifications() {
   });
 }
 
-// Track which student's modal is currently open
 let currentModalStudent = null;
 
 function openModal(student) {
@@ -623,6 +771,7 @@ function openModal(student) {
   currentModalStudent = student;
 
   modal.classList.remove("closing");
+  closeEditForm();
 
   photoContainer.innerHTML = `<div class="photo-placeholder">LOADING...</div><div class="absen-badge">${formatAbsen}</div>`;
   loadOptimizedImage(`img/${formatAbsen}.png`, photoContainer, student);
@@ -637,7 +786,6 @@ function openModal(student) {
   document.getElementById("m-ttl").innerText = student.ttl || "-";
   document.getElementById("m-minat").innerText = student.minat || "-";
 
-  // Show/hide gift button
   const giftBtn = document.getElementById("gift-btn");
   if (giftBtn) giftBtn.style.display = isBday ? "inline-block" : "none";
 
@@ -656,9 +804,20 @@ function openModal(student) {
   modal.classList.add("active");
 }
 
+function handleSmartClose() {
+  const editBox = document.getElementById("edit-form-box");
+  if (editBox && editBox.style.display === "flex") {
+    closeEditForm();
+  } else {
+    closeModal();
+  }
+}
+
 function closeModal() {
   const modal = document.getElementById("detail-modal");
+  if (!modal) return;
   modal.classList.add("closing");
+  closeEditForm();
 
   setTimeout(() => {
     modal.classList.remove("active");
@@ -666,20 +825,38 @@ function closeModal() {
   }, 400);
 }
 
-document.getElementById("detail-modal").addEventListener("click", function (e) {
-  if (e.target === this) {
-    closeModal();
+// INITIALIZATION EVENT LISTENERS
+document.addEventListener("DOMContentLoaded", () => {
+  loadCloudData();
+  initBirthdayNotification();
+  startContinuousMessageLoop();
+
+  const detailModal = document.getElementById("detail-modal");
+  if (detailModal) {
+    detailModal.addEventListener("click", function (e) {
+      if (e.target === this) closeModal();
+    });
+  }
+
+  const pinInput = document.getElementById("pin-input-field");
+  if (pinInput) {
+    pinInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        submitPin();
+      }
+    });
+  }
+
+  const pinModal = document.getElementById("pin-modal");
+  if (pinModal) {
+    pinModal.addEventListener("click", function (e) {
+      if (e.target === this) closePinModal();
+    });
   }
 });
 
-changePage(1);
-initBirthdayNotification();
-
-// =============================================
-// BIRTHDAY GIFT MESSAGE SYSTEM  v2
-// =============================================
-
-// ---------- Device fingerprint (persists across refresh) ----------
+// BIRTHDAY GIFT MESSAGE SYSTEM SETUP
 function getDeviceId() {
   let id = localStorage.getItem("_bday_device_id");
   if (!id) {
@@ -689,7 +866,6 @@ function getDeviceId() {
   return id;
 }
 
-// ---------- Date key ----------
 function getTodayKey() {
   const d = new Date();
   return (
@@ -705,7 +881,6 @@ function getLimitKey() {
   return "bday_limit_" + getTodayKey();
 }
 
-// ---------- Limit helpers (keyed by deviceId + recipientAbsen) ----------
 function hasAlreadySent(recipientAbsen) {
   try {
     const raw = localStorage.getItem(getLimitKey());
@@ -728,10 +903,7 @@ function recordSent(recipientAbsen) {
   } catch (e) {}
 }
 
-// ---------- Content moderation ----------
-// List kata-kata kasar / SARA / vulgar yang dilarang (ID + EN)
 const BANNED_WORDS = [
-  // Kata kasar umum Bahasa Indonesia
   "anjing",
   "anjg",
   "anying",
@@ -778,62 +950,11 @@ const BANNED_WORDS = [
   "cock",
   "pussy",
   "ass",
-  // SARA – suku
-  "cina",
-  "cinoy",
-  "cino",
-  "chink",
-  "inlander",
-  "pribumi hina",
-  "kafir",
-  "murtad",
-  "negro",
-  "nigger",
-  "nigga",
-  "batak kasar",
-  "jawa kasar",
-  "sunda kasar",
-  // SARA – agama
-  "allahakbar kasar",
-  "kafir",
-  "murtad",
-  "sesat",
-  "penghina agama",
-  "binatang",
-  // Ujaran kebencian / diskriminasi
-  "bunuh",
-  "mati",
-  "matilah",
-  "mampus",
-  "mampuslah",
-  "bego",
-  "gila",
-  "edan",
-  "sinting",
-  "cacad",
-  "cacat",
-  "lonte",
-  "pelacur",
-  "sundal",
-  "pelabuhan",
-  "pelat",
-  "homo",
-  "banci kasar",
-  "bencong kasar",
-  "waria kasar",
-  // Tambahan umum
-  "hina",
-  "rendah",
-  "mesum",
-  "jorok",
-  "kotor",
 ];
 
-// Fungsi cek kata terlarang (case-insensitive, partial-match aman)
 function containsBannedWord(text) {
   const lower = text.toLowerCase().replace(/[^a-z0-9\s]/g, "");
   return BANNED_WORDS.some((word) => {
-    // cek kata utuh ATAU kata yg jadi bagian frasa (mis. "anjg" dlm "anjggg")
     return (
       new RegExp("(^|\\s)" + word + "($|\\s|[^a-z])", "i").test(lower) ||
       lower.includes(word)
@@ -841,7 +962,6 @@ function containsBannedWord(text) {
   });
 }
 
-// ---------- Gift modal ----------
 function getTodayBirthdayStudents() {
   return studentsData.filter((s) => checkIsBirthdayToday(s.ttl));
 }
@@ -863,7 +983,6 @@ function openGiftModal() {
     selectEl.appendChild(opt);
   });
 
-  // Reset form
   document.getElementById("gift-from").value = "";
   document.getElementById("gift-message").value = "";
   document.getElementById("char-count").textContent = "0";
@@ -878,15 +997,20 @@ function closeGiftModal() {
   document.getElementById("gift-modal").classList.remove("active");
 }
 
-document.getElementById("gift-message").addEventListener("input", function () {
-  document.getElementById("char-count").textContent = this.value.length;
-});
+const msgTextarea = document.getElementById("gift-message");
+if (msgTextarea) {
+  msgTextarea.addEventListener("input", function () {
+    document.getElementById("char-count").textContent = this.value.length;
+  });
+}
 
-document.getElementById("gift-modal").addEventListener("click", function (e) {
-  if (e.target === this) closeGiftModal();
-});
+const giftModalOverlay = document.getElementById("gift-modal");
+if (giftModalOverlay) {
+  giftModalOverlay.addEventListener("click", function (e) {
+    if (e.target === this) closeGiftModal();
+  });
+}
 
-// ---------- Send ----------
 function sendBirthdayMessage() {
   const selectEl = document.getElementById("gift-to");
   const fromEl = document.getElementById("gift-from");
@@ -896,7 +1020,6 @@ function sendBirthdayMessage() {
   const senderName = fromEl.value.trim();
   const message = msgEl.value.trim();
 
-  // Validasi kosong
   if (!senderName) {
     showGiftError("⚠️ Nama kamu wajib diisi!");
     fromEl.focus();
@@ -908,23 +1031,20 @@ function sendBirthdayMessage() {
     return;
   }
 
-  // Validasi konten nama
   if (containsBannedWord(senderName)) {
     showGiftError("🚫 Nama mengandung kata yang tidak diperbolehkan.");
     fromEl.focus();
     return;
   }
 
-  // Validasi konten pesan
   if (containsBannedWord(message)) {
     showGiftError(
-      "🚫 Pesan mengandung kata yang tidak diperbolehkan (kasar / SARA / vulgar). Harap gunakan kata yang sopan dan positif!",
+      "🚫 Pesan mengandung kata yang tidak diperbolehkan (kasar / SARA / vulgar).",
     );
     msgEl.focus();
     return;
   }
 
-  // Cek limit per device per penerima per hari
   if (hasAlreadySent(recipientAbsen)) {
     const recipient = studentsData.find((s) => s.absen === recipientAbsen);
     const rName = recipient ? recipient.nama.split(" ")[0] : "orang ini";
@@ -936,9 +1056,7 @@ function sendBirthdayMessage() {
     return;
   }
 
-  // Simpan & kirim
   recordSent(recipientAbsen);
-
   const recipient = studentsData.find((s) => s.absen === recipientAbsen);
   const rName = recipient ? recipient.nama.split(" ")[0] : "dia";
 
@@ -952,9 +1070,8 @@ function showGiftError(text) {
   errEl.style.display = "block";
 }
 
-// ---------- Sequential loop queue for floating messages ----------
-const msgQueue = []; // antrian pesan
-let msgPlaying = false; // sedang memutar?
+const msgQueue = [];
+let msgPlaying = false;
 
 function enqueueFloatingMessage(toName, message, fromName) {
   msgQueue.push({ toName, message, fromName });
@@ -971,9 +1088,7 @@ function playNextMessage() {
   _showFloatingBubble(toName, message, fromName);
 }
 
-// Durasi animasi dalam ms — dibuat lambat & lembut agar ringan di HP
-const FLOAT_DURATION = 6000; // 6 detik naik perlahan
-const FLOAT_FADE = 1200; // 1.2 detik fade in+out
+const FLOAT_DURATION = 6000;
 
 function _showFloatingBubble(toName, message, fromName) {
   const container = document.getElementById("floating-messages");
@@ -984,7 +1099,6 @@ function _showFloatingBubble(toName, message, fromName) {
 
   const bubble = document.createElement("div");
   bubble.className = "floating-msg";
-  // Terapkan durasi dinamis via inline style agar konsisten dengan JS timing
   bubble.style.animationDuration = FLOAT_DURATION + "ms";
   bubble.innerHTML =
     '<div class="floating-msg-for">🎂 UNTUK: ' +
@@ -999,10 +1113,8 @@ function _showFloatingBubble(toName, message, fromName) {
 
   container.appendChild(bubble);
 
-  // Hapus bubble lalu mainkan pesan berikutnya setelah animasi selesai
   setTimeout(() => {
     bubble.remove();
-    // Jeda kecil antar pesan supaya tidak tumpang tindih
     setTimeout(playNextMessage, 300);
   }, FLOAT_DURATION + 200);
 }
