@@ -208,6 +208,7 @@ const manualData = {
 
   29: {
     nama: "Rakka Syah Ananda Siregar",
+    title: "",
     umur: "",
     ttl: "20 Juli 2009",
     minat: "PNS Kementrian Keuangan",
@@ -611,11 +612,15 @@ function checkAndTriggerBirthdayNotifications() {
   });
 }
 
+// Track which student's modal is currently open
+let currentModalStudent = null;
+
 function openModal(student) {
   const modal = document.getElementById("detail-modal");
   const formatAbsen = student.absen.toString().padStart(2, "0");
   const photoContainer = modal.querySelector(".modal-photo-container");
   const isBday = checkIsBirthdayToday(student.ttl);
+  currentModalStudent = student;
 
   modal.classList.remove("closing");
 
@@ -631,6 +636,10 @@ function openModal(student) {
   document.getElementById("m-umur").innerText = hitungUmurOtomatis(student.ttl);
   document.getElementById("m-ttl").innerText = student.ttl || "-";
   document.getElementById("m-minat").innerText = student.minat || "-";
+
+  // Show/hide gift button
+  const giftBtn = document.getElementById("gift-btn");
+  if (giftBtn) giftBtn.style.display = isBday ? "inline-block" : "none";
 
   let bdayBanner = modal.querySelector(".birthday-banner");
   if (bdayBanner) bdayBanner.remove();
@@ -665,3 +674,344 @@ document.getElementById("detail-modal").addEventListener("click", function (e) {
 
 changePage(1);
 initBirthdayNotification();
+
+// =============================================
+// BIRTHDAY GIFT MESSAGE SYSTEM  v2
+// =============================================
+
+// ---------- Device fingerprint (persists across refresh) ----------
+function getDeviceId() {
+  let id = localStorage.getItem("_bday_device_id");
+  if (!id) {
+    id = Math.random().toString(36).slice(2) + Date.now().toString(36);
+    localStorage.setItem("_bday_device_id", id);
+  }
+  return id;
+}
+
+// ---------- Date key ----------
+function getTodayKey() {
+  const d = new Date();
+  return (
+    d.getFullYear() +
+    "-" +
+    String(d.getMonth() + 1).padStart(2, "0") +
+    "-" +
+    String(d.getDate()).padStart(2, "0")
+  );
+}
+
+function getLimitKey() {
+  return "bday_limit_" + getTodayKey();
+}
+
+// ---------- Limit helpers (keyed by deviceId + recipientAbsen) ----------
+function hasAlreadySent(recipientAbsen) {
+  try {
+    const raw = localStorage.getItem(getLimitKey());
+    if (!raw) return false;
+    const data = JSON.parse(raw);
+    const key = getDeviceId() + "_" + String(recipientAbsen);
+    return !!data[key];
+  } catch (e) {
+    return false;
+  }
+}
+
+function recordSent(recipientAbsen) {
+  try {
+    const raw = localStorage.getItem(getLimitKey());
+    const data = raw ? JSON.parse(raw) : {};
+    const key = getDeviceId() + "_" + String(recipientAbsen);
+    data[key] = 1;
+    localStorage.setItem(getLimitKey(), JSON.stringify(data));
+  } catch (e) {}
+}
+
+// ---------- Content moderation ----------
+// List kata-kata kasar / SARA / vulgar yang dilarang (ID + EN)
+const BANNED_WORDS = [
+  // Kata kasar umum Bahasa Indonesia
+  "anjing",
+  "anjg",
+  "anying",
+  "bangsat",
+  "brengsek",
+  "bajingan",
+  "kampret",
+  "keparat",
+  "babi",
+  "celeng",
+  "tai",
+  "tahi",
+  "taik",
+  "tolol",
+  "goblok",
+  "bodoh",
+  "idiot",
+  "dungu",
+  "asu",
+  "jancok",
+  "jancuk",
+  "jangkrik",
+  "cuk",
+  "kontol",
+  "memek",
+  "ngentot",
+  "entot",
+  "ngewe",
+  "pepek",
+  "titit",
+  "toket",
+  "bokep",
+  "cabul",
+  "seks",
+  "porn",
+  "sex",
+  "fuck",
+  "shit",
+  "bitch",
+  "asshole",
+  "damn",
+  "cunt",
+  "dick",
+  "cock",
+  "pussy",
+  "ass",
+  // SARA – suku
+  "cina",
+  "cinoy",
+  "cino",
+  "chink",
+  "inlander",
+  "pribumi hina",
+  "kafir",
+  "murtad",
+  "negro",
+  "nigger",
+  "nigga",
+  "batak kasar",
+  "jawa kasar",
+  "sunda kasar",
+  // SARA – agama
+  "allahakbar kasar",
+  "kafir",
+  "murtad",
+  "sesat",
+  "penghina agama",
+  "binatang",
+  // Ujaran kebencian / diskriminasi
+  "bunuh",
+  "mati",
+  "matilah",
+  "mampus",
+  "mampuslah",
+  "bego",
+  "gila",
+  "edan",
+  "sinting",
+  "cacad",
+  "cacat",
+  "lonte",
+  "pelacur",
+  "sundal",
+  "pelabuhan",
+  "pelat",
+  "homo",
+  "banci kasar",
+  "bencong kasar",
+  "waria kasar",
+  // Tambahan umum
+  "hina",
+  "rendah",
+  "mesum",
+  "jorok",
+  "kotor",
+];
+
+// Fungsi cek kata terlarang (case-insensitive, partial-match aman)
+function containsBannedWord(text) {
+  const lower = text.toLowerCase().replace(/[^a-z0-9\s]/g, "");
+  return BANNED_WORDS.some((word) => {
+    // cek kata utuh ATAU kata yg jadi bagian frasa (mis. "anjg" dlm "anjggg")
+    return (
+      new RegExp("(^|\\s)" + word + "($|\\s|[^a-z])", "i").test(lower) ||
+      lower.includes(word)
+    );
+  });
+}
+
+// ---------- Gift modal ----------
+function getTodayBirthdayStudents() {
+  return studentsData.filter((s) => checkIsBirthdayToday(s.ttl));
+}
+
+function openGiftModal() {
+  const bdayStudents = getTodayBirthdayStudents();
+  if (bdayStudents.length === 0) return;
+
+  const selectEl = document.getElementById("gift-to");
+  selectEl.innerHTML = "";
+  bdayStudents.forEach((s) => {
+    const opt = document.createElement("option");
+    opt.value = s.absen;
+    opt.textContent =
+      s.nama + " (No. " + String(s.absen).padStart(2, "0") + ")";
+    if (currentModalStudent && s.absen === currentModalStudent.absen) {
+      opt.selected = true;
+    }
+    selectEl.appendChild(opt);
+  });
+
+  // Reset form
+  document.getElementById("gift-from").value = "";
+  document.getElementById("gift-message").value = "";
+  document.getElementById("char-count").textContent = "0";
+  const errEl = document.getElementById("gift-error");
+  errEl.style.display = "none";
+  errEl.textContent = "";
+
+  document.getElementById("gift-modal").classList.add("active");
+}
+
+function closeGiftModal() {
+  document.getElementById("gift-modal").classList.remove("active");
+}
+
+document.getElementById("gift-message").addEventListener("input", function () {
+  document.getElementById("char-count").textContent = this.value.length;
+});
+
+document.getElementById("gift-modal").addEventListener("click", function (e) {
+  if (e.target === this) closeGiftModal();
+});
+
+// ---------- Send ----------
+function sendBirthdayMessage() {
+  const selectEl = document.getElementById("gift-to");
+  const fromEl = document.getElementById("gift-from");
+  const msgEl = document.getElementById("gift-message");
+
+  const recipientAbsen = parseInt(selectEl.value);
+  const senderName = fromEl.value.trim();
+  const message = msgEl.value.trim();
+
+  // Validasi kosong
+  if (!senderName) {
+    showGiftError("⚠️ Nama kamu wajib diisi!");
+    fromEl.focus();
+    return;
+  }
+  if (!message) {
+    showGiftError("⚠️ Pesan tidak boleh kosong!");
+    msgEl.focus();
+    return;
+  }
+
+  // Validasi konten nama
+  if (containsBannedWord(senderName)) {
+    showGiftError("🚫 Nama mengandung kata yang tidak diperbolehkan.");
+    fromEl.focus();
+    return;
+  }
+
+  // Validasi konten pesan
+  if (containsBannedWord(message)) {
+    showGiftError(
+      "🚫 Pesan mengandung kata yang tidak diperbolehkan (kasar / SARA / vulgar). Harap gunakan kata yang sopan dan positif!",
+    );
+    msgEl.focus();
+    return;
+  }
+
+  // Cek limit per device per penerima per hari
+  if (hasAlreadySent(recipientAbsen)) {
+    const recipient = studentsData.find((s) => s.absen === recipientAbsen);
+    const rName = recipient ? recipient.nama.split(" ")[0] : "orang ini";
+    showGiftError(
+      "⚠️ Kamu sudah mengirim pesan untuk " +
+        rName +
+        " hari ini. Boleh kirim lagi besok ya! 😊",
+    );
+    return;
+  }
+
+  // Simpan & kirim
+  recordSent(recipientAbsen);
+
+  const recipient = studentsData.find((s) => s.absen === recipientAbsen);
+  const rName = recipient ? recipient.nama.split(" ")[0] : "dia";
+
+  closeGiftModal();
+  enqueueFloatingMessage(rName, message, senderName);
+}
+
+function showGiftError(text) {
+  const errEl = document.getElementById("gift-error");
+  errEl.textContent = text;
+  errEl.style.display = "block";
+}
+
+// ---------- Sequential loop queue for floating messages ----------
+const msgQueue = []; // antrian pesan
+let msgPlaying = false; // sedang memutar?
+
+function enqueueFloatingMessage(toName, message, fromName) {
+  msgQueue.push({ toName, message, fromName });
+  if (!msgPlaying) playNextMessage();
+}
+
+function playNextMessage() {
+  if (msgQueue.length === 0) {
+    msgPlaying = false;
+    return;
+  }
+  msgPlaying = true;
+  const { toName, message, fromName } = msgQueue.shift();
+  _showFloatingBubble(toName, message, fromName);
+}
+
+// Durasi animasi dalam ms — dibuat lambat & lembut agar ringan di HP
+const FLOAT_DURATION = 6000; // 6 detik naik perlahan
+const FLOAT_FADE = 1200; // 1.2 detik fade in+out
+
+function _showFloatingBubble(toName, message, fromName) {
+  const container = document.getElementById("floating-messages");
+  if (!container) {
+    playNextMessage();
+    return;
+  }
+
+  const bubble = document.createElement("div");
+  bubble.className = "floating-msg";
+  // Terapkan durasi dinamis via inline style agar konsisten dengan JS timing
+  bubble.style.animationDuration = FLOAT_DURATION + "ms";
+  bubble.innerHTML =
+    '<div class="floating-msg-for">🎂 UNTUK: ' +
+    escapeHtml(toName.toUpperCase()) +
+    "</div>" +
+    '<div class="floating-msg-text">' +
+    escapeHtml(message) +
+    "</div>" +
+    '<div class="floating-msg-from">— ' +
+    escapeHtml(fromName) +
+    "</div>";
+
+  container.appendChild(bubble);
+
+  // Hapus bubble lalu mainkan pesan berikutnya setelah animasi selesai
+  setTimeout(() => {
+    bubble.remove();
+    // Jeda kecil antar pesan supaya tidak tumpang tindih
+    setTimeout(playNextMessage, 300);
+  }, FLOAT_DURATION + 200);
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}

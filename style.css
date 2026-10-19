@@ -748,3 +748,229 @@ main {
         max-width: 320px;
     }
 }
+
+/* ===== GIFT BUTTON (next to name in modal) ===== */
+.gift-btn {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    margin-left: 6px;
+    vertical-align: middle;
+    animation: giftPop 1.2s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 5px rgba(255, 200, 0, 0.8));
+    line-height: 1;
+}
+
+@keyframes giftPop {
+    from { transform: scale(1) rotate(-5deg); }
+    to   { transform: scale(1.2) rotate(5deg); }
+}
+
+/* ===== MODAL PHOTO CONTAINER ===== */
+.modal-photo-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #0a1a2e;
+    margin-bottom: 14px;
+}
+
+/* ===== GIFT MODAL OVERLAY ===== */
+.gift-modal-overlay {
+    z-index: 1100;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+}
+
+.gift-modal-content {
+    background: linear-gradient(145deg, #040f1e, #071828);
+    border: 1px solid rgba(255, 180, 0, 0.5);
+    border-radius: 16px;
+    padding: 20px;
+    width: 88%;
+    max-width: 340px;
+    box-shadow: 0 0 24px rgba(255, 180, 0, 0.25), 0 0 60px rgba(255, 80, 0, 0.1);
+    position: relative;
+    animation: popAndUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.gift-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    color: #ffd700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 180, 0, 0.25);
+}
+
+.gift-modal-close {
+    background: transparent;
+    border: none;
+    color: rgba(170, 221, 255, 0.6);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.gift-modal-close:hover { color: #ff4d4d; }
+
+.gift-form-group {
+    margin-bottom: 12px;
+}
+
+.gift-label {
+    display: block;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.82rem;
+    color: #aaddff;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.required { color: #ff4d4d; }
+
+.gift-select,
+.gift-input,
+.gift-textarea {
+    width: 100%;
+    background: rgba(5, 22, 42, 0.9);
+    border: 1px solid rgba(77, 166, 255, 0.4);
+    border-radius: 8px;
+    color: #00ffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.88rem;
+    padding: 8px 10px;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+    box-sizing: border-box;
+}
+
+.gift-select:focus,
+.gift-input:focus,
+.gift-textarea:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.gift-select option {
+    background: #040f1e;
+    color: #aaddff;
+}
+
+.gift-textarea {
+    height: 80px;
+    resize: none;
+    line-height: 1.4;
+}
+
+.gift-char-count {
+    text-align: right;
+    font-size: 0.7rem;
+    color: rgba(170, 221, 255, 0.5);
+    margin-top: 3px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.gift-error {
+    background: rgba(255, 40, 40, 0.12);
+    border: 1px solid rgba(255, 50, 50, 0.4);
+    border-radius: 8px;
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.gift-send-btn {
+    width: 100%;
+    background: linear-gradient(90deg, rgba(255, 140, 0, 0.3), rgba(255, 215, 0, 0.3));
+    border: 1px solid #ffd700;
+    border-radius: 10px;
+    color: #ffd700;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+.gift-send-btn:hover {
+    background: linear-gradient(90deg, rgba(255, 140, 0, 0.55), rgba(255, 215, 0, 0.55));
+    box-shadow: 0 0 16px rgba(255, 215, 0, 0.5);
+}
+
+/* ===== FLOATING MESSAGES CONTAINER ===== */
+#floating-messages {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 320px;
+    pointer-events: none;
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.floating-msg {
+    background: linear-gradient(135deg, rgba(10, 20, 45, 0.96), rgba(5, 15, 35, 0.96));
+    border: 1px solid rgba(255, 180, 0, 0.6);
+    border-radius: 14px;
+    padding: 10px 14px;
+    width: 100%;
+    box-shadow: 0 0 18px rgba(255, 180, 0, 0.2);
+    /* durasi di-override per-bubble via JS (FLOAT_DURATION) */
+    animation: floatUpMsg 6s ease-in-out forwards;
+    pointer-events: none;
+    /* GPU-accelerated: hanya opacity & transform */
+    will-change: opacity, transform;
+    transform: translateZ(0);
+}
+
+.floating-msg-for {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.62rem;
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+
+.floating-msg-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.88rem;
+    color: #d0eeff;
+    line-height: 1.4;
+    margin-bottom: 4px;
+}
+
+.floating-msg-from {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: rgba(77, 166, 255, 0.7);
+    text-align: right;
+}
+
+/* Animasi naik perlahan & lembut — hanya opacity + translateY (GPU only) */
+@keyframes floatUpMsg {
+    0%   { opacity: 0;   transform: translateY(30px); }
+    15%  { opacity: 1;   transform: translateY(0); }
+    75%  { opacity: 1;   transform: translateY(-50px); }
+    100% { opacity: 0;   transform: translateY(-80px); }
+}
+
