@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XI-Sains A2 Profil Website</title>
+    <!-- Menghubungkan Web Manifest -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Menentukan warna status bar / header di HP -->
+    <meta name="theme-color" content="#4ecca3" />
+
+    <!-- Ikon favicon di tab browser -->
+    <link rel="icon" type="image/png" sizes="192x192" href="icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -39,7 +47,7 @@
         <input
           type="text"
           id="search-input"
-          placeholder="[ CARI NAMA / ABSEN / MINAT... ]"
+          placeholder="[Cari Siapapun disini...]"
           autocomplete="off"
         />
         <button id="clear-search" onclick="clearSearch()" style="display: none">
@@ -123,7 +131,7 @@
             </div>
             <div class="info-row">
               <span class="label">Impian:</span>
-              <span class="value-text" id="m-minat">-</span>
+              <span class="value-text" id="m-impian">-</span>
             </div>
 
             <!-- Form Edit (Tersembunyi sampai PIN benar) -->
@@ -148,7 +156,7 @@
               />
               <input
                 type="text"
-                id="edit-minat"
+                id="edit-impian"
                 class="edit-input"
                 placeholder="Cita-cita / Impian"
               />

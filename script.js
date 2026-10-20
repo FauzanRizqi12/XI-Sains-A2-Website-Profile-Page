@@ -9,217 +9,296 @@ const manualData = {
     umur: "",
     title: "Geography Addict",
     ttl: "29 September 2008",
-    minat: "Geography",
+    impian: "",
+    pin: "1824",
   },
   2: {
     nama: "Abdurrahman Al Faqih Lubis",
     umur: "",
+    title: "",
     ttl: "10 Agustus 2009",
-    minat: "Basket",
+    impian: "",
+    pin: "0409",
   },
   3: {
     nama: "Ainur Wilda Siregar",
     umur: "",
+    title: "",
     ttl: "26 Mei 2010",
-    minat: "Listening Music",
+    impian: "",
+    pin: "4506",
   },
-  4: { nama: "Alfiansyah", umur: "", ttl: "3 Oktober 2008", minat: "Paskibra" },
+  4: {
+    nama: "Alfiansyah",
+    umur: "",
+    title: "",
+    ttl: "3 Oktober 2008",
+    impian: "",
+    pin: "4012",
+  },
   5: {
     nama: "Alvaro Laisina",
     umur: "",
+    title: "",
     ttl: "28 September 2009",
-    minat: "Olimpiade",
+    impian: "",
+    pin: "3657",
   },
   6: {
     nama: "Aqilla Zahrani Hendrawan",
     umur: "",
+    title: "",
     ttl: "13 Juli 2009",
-    minat: "Pramugari",
+    impian: "Pramugari",
+    pin: "2286",
   },
   7: {
     nama: "Arif Azman Harahap",
     umur: "",
+    title: "",
     ttl: "30 Juni 2009",
-    minat: "Pemain Timnas",
+    impian: "Jadi Pemain Timnas",
+    pin: "1679",
   },
-  8: { nama: "Ayu Dyah", umur: "", ttl: "04 Januari 2009", minat: "Archer" },
+  8: {
+    nama: "Ayu Dyah",
+    umur: "",
+    title: "",
+    ttl: "04 Januari 2009",
+    impian: "Archer",
+    pin: "3479",
+  },
   9: {
     nama: "Azka Ulima Husna Nadeak",
     umur: "",
+    title: "",
     ttl: "04 Desember 2009",
-    minat: "",
+    impian: "",
+    pin: "1424",
   },
   10: {
     nama: "Desvina Haura Fairuz",
     umur: "",
+    title: "",
     ttl: "5 Desember 2009",
-    minat: "",
+    impian: "",
+    pin: "9674",
   },
   11: {
     nama: "Desvita Haura Fairuz",
     umur: "",
+    title: "",
     ttl: "5 Desember 2009",
-    minat: "Listening Music",
+    impian: "",
+    pin: "6912",
   },
   12: {
     nama: "Dewi Andini",
     umur: "",
     title: "S.Psi. M.Psi., Psikolog",
     ttl: "10 Maret 2009",
-    minat: "Psychology, 1230J",
+    impian: "Psychology, 1230J",
+    pin: "0520",
   },
   13: {
     nama: "Dhafira Khairiyah Batubara",
     umur: "",
+    title: "",
     ttl: "21 Desember 2009",
-    minat: "",
+    impian: "",
+    pin: "0488",
   },
   14: {
     nama: "Fadhilatun Nisa Manurung",
     umur: "",
+    title: "",
     ttl: "13 Agustus 2009",
-    minat: "Travelling",
+    impian: "World Travelling",
+    pin: "1535",
   },
   15: {
     nama: "Faza Marwan Azka",
     umur: "",
-    title: "Success Person",
+    title: "Trader",
     ttl: "29 September 2009",
-    minat: "Vehicle Modification",
+    impian: "Umroh",
+    pin: "4321",
   },
   16: {
     nama: "Firly Bagus Cahyo",
     umur: "",
+    title: "",
     ttl: "21 Januari 2009",
-    minat: "Guitarist",
+    impian: "Guitarist",
+    pin: "3811",
   },
   17: {
     nama: "Fitryah Handayani Daulay",
     umur: "",
     title: "Psych Addict",
     ttl: "19 September 2009",
-    minat: "Writing, Travelling",
+    impian: "Penulis, Travelling",
+    pin: "8279",
   },
   18: {
     nama: "Khadijah Limbong",
     umur: "",
+    title: "",
     ttl: "16 Februari 2009",
-    minat: "",
+    impian: "",
+    pin: "9863",
   },
   19: {
     nama: "Khansa Alya Pramana",
     umur: "",
+    title: "",
     ttl: "10 Juli 2009",
-    minat: "Writing Novel",
+    impian: "Novelis",
+    pin: "0434",
   },
   20: {
     nama: "Muhammad Fauzan Al Fakhri",
     umur: "",
+    title: "",
     ttl: "11 April 2009",
-    minat: "Gaming",
+    impian: "Gamer",
+    pin: "9195",
   },
   21: {
     nama: "Muhammad Fathur Rais",
     title: "Biology Addict",
     umur: "",
     ttl: "12 Maret 2009",
-    minat: "Membaca",
+    impian: "Researcher",
+    pin: "3154",
   },
   22: {
     nama: "M. Fauzan Rizqi Srg",
     title: "IT Developer",
     umur: "",
     ttl: "2 Desember 2009",
-    minat: "Programmer, Pro Gamer",
+    impian: "Programmer, Pro Gamer",
+    pin: "0212",
   },
   23: {
     nama: "Muhammad Jibril Imaman",
     umur: "",
+    title: "",
     ttl: "10 September 2009",
-    minat: "Olahraga",
+    impian: "",
+    pin: "6873",
   },
   24: {
     nama: "Muhammad Nabil Althaf",
     umur: "",
+    title: "",
     ttl: "1 Februari 2009",
-    minat: "Gaming",
+    impian: "Gamer",
+    pin: "3611",
   },
   25: {
     nama: "Nafiza Almira",
     umur: "",
+    title: "",
     ttl: "16 Oktober 2009",
-    minat: "Qira'atul Qur'an",
+    impian: "Ustadzah",
+    pin: "7359",
   },
   26: {
     nama: "Najwa Ayu Azzahra",
     umur: "",
+    title: "",
     ttl: "13 September 2009",
-    minat: "Miliarder",
+    impian: "Miliarder",
+    pin: "9654",
   },
   27: {
     nama: "Nara Raissa Fahri",
     umur: "",
-    title: "Biology Addict",
+    title: "",
     ttl: "17 April 2010",
-    minat: "Anime, Mendengar Musik, Sastra",
+    impian: "",
+    pin: "4557",
   },
   28: {
     nama: "Nayla Yasmin",
     umur: "",
+    title: "",
     ttl: "23 Desember 2009",
-    minat: "Travelling, Drawing, Scientific Research",
+    impian: "Travelling, Scientific Research",
+    pin: "0106",
   },
   29: {
     nama: "Rakka Syah Ananda Siregar",
     title: "",
     umur: "",
     ttl: "20 Juli 2009",
-    minat: "PNS Kementrian Keuangan",
+    impian: "PNS Kementrian Keuangan",
+    pin: "2615",
   },
-  30: { nama: "Safa Zahirah Arifin", umur: "", ttl: "30 Juni 2009", minat: "" },
+  30: {
+    nama: "Safa Zahirah Arifin",
+    umur: "",
+    title: "",
+    ttl: "30 Juni 2009",
+    impian: "",
+    pin: "6924",
+  },
   31: {
     nama: "Shaliha Salsabila Iman",
     umur: "",
+    title: "",
     ttl: "18 Desember 2009",
-    minat: "Olahraga",
+    impian: "",
+    pin: "5574",
   },
   32: {
     nama: "Shata Nabil Akyi",
-    title: "'Ketua' IT",
+    title: "",
     umur: "",
     ttl: "1 Desember 2009",
-    minat: "Photografi, Tracking",
+    impian: "Photografer, Tracking Everest",
+    pin: "4552",
   },
   33: {
     nama: "Syifa Qalbu Sinaga",
     umur: "",
+    title: "",
     ttl: "28 Oktober 2009",
-    minat: "",
+    impian: "",
+    pin: "2547",
   },
   34: {
     nama: "Ubay Ghaizan",
     umur: "",
+    title: "",
     ttl: "2 Januari 2009",
-    minat: "Berkendara Malam",
+    impian: "",
+    pin: "3527",
   },
   35: {
     nama: "Wardatun Husniyah Hasibuan",
     umur: "",
+    title: "",
     ttl: "8 Januari 2009",
-    minat: "Nonton Film, Bernyanyi",
+    impian: "",
+    pin: "5514",
   },
   36: {
     nama: "Yola Putri Irbi",
     umur: "",
+    title: "",
     ttl: "12 Agustus 2009",
-    minat: "Menari, Cortis & Sean",
+    impian: "Dancer",
+    pin: "1674",
   },
   37: {
     nama: "Zhahir Farzan Dani",
     umur: "",
-    title: "Math Master",
+    title: "",
     ttl: "24 Juni 2009",
-    minat: "Listening Music",
+    impian: "Ke Beijing China",
+    pin: "1519",
   },
 };
 
@@ -228,7 +307,7 @@ const studentsData = Array.from({ length: totalStudents }, (_, i) => {
   const id = i + 1;
   return {
     absen: id,
-    ...(manualData[id] || { nama: `Siswa ${id}`, ttl: "Unknown", minat: "-" }),
+    ...(manualData[id] || { nama: `Siswa ${id}`, ttl: "Unknown", impian: "-" }),
   };
 });
 
@@ -364,8 +443,8 @@ function submitPin() {
       document.getElementById("edit-title").value =
         currentModalStudent.title || "";
       document.getElementById("edit-ttl").value = currentModalStudent.ttl || "";
-      document.getElementById("edit-minat").value =
-        currentModalStudent.minat || "";
+      document.getElementById("edit-impian").value =
+        currentModalStudent.impian || "";
 
       const scrollContainer = document.querySelector(".modal-body-scroll");
       if (scrollContainer) {
@@ -393,7 +472,7 @@ async function savePersonalData() {
   const newNama = document.getElementById("edit-nama").value.trim();
   const newTitle = document.getElementById("edit-title").value.trim();
   const newTtl = document.getElementById("edit-ttl").value.trim();
-  const newMinat = document.getElementById("edit-minat").value.trim();
+  const newImpian = document.getElementById("edit-impian").value.trim();
 
   const updatedAllData = {};
   studentsData.forEach((s) => {
@@ -401,7 +480,7 @@ async function savePersonalData() {
       nama: s.absen === absen ? newNama : s.nama,
       title: s.absen === absen ? newTitle : s.title,
       ttl: s.absen === absen ? newTtl : s.ttl,
-      minat: s.absen === absen ? newMinat : s.minat,
+      impian: s.absen === absen ? newImpian : s.impian,
       pin: s.pin || "",
     };
   });
@@ -518,11 +597,11 @@ function handleSearch() {
 
     const filtered = studentsData.filter((student) => {
       const matchNama = (student.nama || "").toLowerCase().includes(query);
-      const matchMinat = (student.minat || "").toLowerCase().includes(query);
+      const matchImpian = (student.impian || "").toLowerCase().includes(query);
       const matchAbsen =
         student.absen.toString() === query ||
         student.absen.toString().padStart(2, "0") === query;
-      return matchNama || matchMinat || matchAbsen;
+      return matchNama || matchImpian || matchAbsen;
     });
 
     const gridContent = document.getElementById("grid-content");
@@ -784,7 +863,7 @@ function openModal(student) {
   }
   document.getElementById("m-umur").innerText = hitungUmurOtomatis(student.ttl);
   document.getElementById("m-ttl").innerText = student.ttl || "-";
-  document.getElementById("m-minat").innerText = student.minat || "-";
+  document.getElementById("m-impian").innerText = student.impian || "-";
 
   const giftBtn = document.getElementById("gift-btn");
   if (giftBtn) giftBtn.style.display = isBday ? "inline-block" : "none";
@@ -1124,6 +1203,14 @@ function escapeHtml(str) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+    .replace(/"/g, "&quot;");
+}
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("./sw.js")
+      .then((reg) => console.log("Service Worker terdaftar:", reg.scope))
+      .catch((err) => console.error("Gagal daftar Service Worker:", err));
+  });
 }
